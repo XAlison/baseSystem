@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>基础平台</title>
+    <link th:href="@{plugin/element-ui/lib/theme-chalk/index.css}" rel="stylesheet"/>
+    <script th:src="@{plugin/vue/vue-2.5.13.min.js}"></script>
+    <script th:src="@{plugin/element-ui/lib/index.js}"></script>
+</head>
+<body>
+<div id="app">
+    <el-button @click="visible = true">Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+        <p>Try Element</p>
+    </el-dialog>
+    <script>
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {visible: false}
+            }
+        })
+    </script>
+</div>
+</body>
+</html>
