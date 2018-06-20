@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- import CSS -->  <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <style scoped>
+        body{
+            /*background: #324157; */
+            background: #324157;
+
+        }
+        .login-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+        }
+        .ms-title {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            margin-top: -230px;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+
+        }
+        .ms-login {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300px;
+            margin: 250px 0 0 -200px;
+            padding: 40px;
+
+            background: #fff;
+        }
+        .ms-right {
+            position: absolute;
+            left: 70%;
+            top: 50%;
+            width: 200px;
+            margin: 250px 0 0 -200px;
+            padding: 40px;
+            height: 214px;
+
+            background: #fff;
+        }
+        .login-btn {
+            text-align: center;
+        }
+        .login-btn button {
+            width: 100%;
+            height: 36px;
+        }
+    </style>
+</head>
+
+
+<body>
+<div id="login">
+    <template>
+        <div class="login-wrap">
+            <div class="ms-title">后台管理系统</div>
+            <div class="ms-login">
+                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
+                    <el-form-item prop="username">
+                        <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="password">
+                        <el-input type="password" placeholder="password" v-model="ruleForm.password"
+                                  @keyup.enter.native="submitForm('ruleForm')"></el-input>
+                    </el-form-item>
+                    <div class="login-btn">
+                        <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                    </div>
+                    <p style="font-size:12px;line-height:30px;color:#999;">Tips : 仅限系统用户 <a href="#" style="float: right;
+                                font-size: 12px;
+                                line-height: 30px;
+                                color: #409EFF;">忘记密码?</a></p>
+
+                </el-form>
+            </div>
+            <!--
+                                <div class="ms-right">
+                                        <div class="card-block"><h2>注册</h2> <p style="color: rgb(153, 153, 153);font-size: 12px;">平台暂时只支持使用公司邮箱注册.</p>
+                                            <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                                </div> -->
+        </div>
+    </template>
+
+
+</div>
+
+
+<script>
+    new Vue({
+        el: '#login',
+        data: function () {
+            return {
+                visible: false,
+                ruleForm: {
+                    username: 'admin',
+                    password: '123123'
+                },
+                rules: {
+                    username: [
+                        {required: true, message: '请输入用户名', trigger: 'blur'}
+                    ],
+                    password: [
+                        {required: true, message: '请输入密码', trigger: 'blur'}
+                    ]
+                }
+            }
+        },
+        methods: {
+            submitForm: function (formName) {
+
+            }
+        }
+    })
+</script>
+
+</body>
+
+
+</html>
